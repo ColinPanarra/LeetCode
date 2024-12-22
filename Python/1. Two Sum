@@ -1,0 +1,18 @@
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+
+        differences = {} 
+        x = 0 
+        for num in nums: 
+            differences[target-num]=x
+            x+=1
+        y = 0
+        for num in nums: 
+            if num in differences and y!=differences[num]:
+                return [y, differences[num]]
+            y+=1 
