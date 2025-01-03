@@ -1,0 +1,23 @@
+class Solution(object):
+    def maxScore(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        numOne = 0 
+        numZero = 0 
+        maxNum = 0 
+    
+        for x in s:
+            if x=='1':
+                numOne+=1 
+
+        
+        for x in s[:-1]: 
+            if x == '0':
+                numZero+=1
+            else:
+                numOne-=1
+            maxNum = max(numZero+numOne, maxNum)
+
+        return maxNum
