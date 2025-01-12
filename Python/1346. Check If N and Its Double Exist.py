@@ -4,14 +4,21 @@ class Solution(object):
         :type arr: List[int]
         :rtype: bool
         """
-        
-        seen = set()
+        nums = set(arr)
 
-        for num in arr: 
-            if num*2 in seen or (num % 2 == 0 and num // 2 in seen):
+        for x in nums: 
+            
+            if x*2 in nums and x!=0:
                 return True
-            seen.add(num)
-        
+            elif x==0:
+                z = 0
+                for n in arr:
+                    if n==0:
+                        z+=1
+                if z>=2:
+                    return True
 
-        
+                
+
         return False
+        
