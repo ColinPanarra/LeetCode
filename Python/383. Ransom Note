@@ -1,0 +1,27 @@
+class Solution(object):
+    def canConstruct(self, ransomNote, magazine):
+        """
+        :type ransomNote: str
+        :type magazine: str
+        :rtype: bool
+        """
+        ransom_hash = {}
+        mag_hash = {}
+
+        for c in ransomNote: 
+            if c in ransom_hash: 
+                ransom_hash[c] += 1 
+            else:
+                ransom_hash[c] = 1
+
+        for c in magazine: 
+            if c in mag_hash: 
+                mag_hash[c] += 1 
+            else:
+                mag_hash[c] = 1
+
+        for c in ransom_hash:
+            if c not in mag_hash or ransom_hash[c] > mag_hash[c]:
+                return False
+        return True
+        
