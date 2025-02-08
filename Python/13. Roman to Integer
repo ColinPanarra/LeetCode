@@ -1,0 +1,33 @@
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        last = 1001
+        num = 0 
+        for c in s: 
+            val = checkCharacter(c)
+
+            if last<val: 
+                num -= last*2
+            num+=val
+            last=val
+
+        return num
+    
+
+
+
+def checkCharacter(c):
+        match c:
+            case 'I':
+                return 1
+            case 'V':
+                return 5
+            case 'X':
+                return 10
+            case 'L':
+                return 50
+            case 'C':
+                return 100
+            case 'D':
+                return 500
+            case 'M':
+                return 1000
