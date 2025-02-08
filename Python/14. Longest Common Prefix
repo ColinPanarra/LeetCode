@@ -1,0 +1,17 @@
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        
+        prefix = ""
+        prefix_confirm = ""
+
+        for pre in strs[0]:
+            prefix=prefix+pre
+
+            for x in strs: 
+                if x[0:len(prefix)] != prefix:
+                    return prefix_confirm
+
+            prefix_confirm = prefix
+        return prefix_confirm
+        
+
